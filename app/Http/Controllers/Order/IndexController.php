@@ -13,8 +13,11 @@ class IndexController extends BaseController
 {
     public function __invoke(FilterRequest $request)
     {
+
         // Получаем данные из запроса
         $search = $request->input('search'); // Получаем значение из поля поиска
+        $status = $request->input('status'); // Получаем статус из запроса
+
 
         // Инициализируем запрос для заказов пользователя
         $query = Order::where('user_id', Auth::id());
@@ -30,6 +33,15 @@ class IndexController extends BaseController
                     ->orWhere('issue', 'like', "%{$search}%")
                     ->orWhere('amount', 'like', "%{$search}%");
             });
+        }
+
+        // Фильтрация по статусу, если статус передан
+        if ($status) {
+            if ($status === 'in_progress') {
+                $query->where('status', 0); // Заказы в работе
+            } elseif ($status === 'completed') {
+                $query->where('status', 1); // Выполненные заказы
+            }
         }
 
         // Получаем отфильтрованные заказы

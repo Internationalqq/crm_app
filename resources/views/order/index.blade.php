@@ -15,14 +15,24 @@
                     <i class="bi bi-plus"></i>
                     Создать
                 </button>
+
+                <!-- Поле поиска -->
                 <form class="d-inline-block" method="GET" action="{{ route('order.index') }}" id="searchForm">
                     <input type="text" name="search" class="form-control form-control-sm d-inline-block w-auto"
                         placeholder="Поиск..." value="{{ request()->input('search') }}" id="searchInput">
                 </form>
                 {{-- <input type="text" class="form-control form-control-sm d-inline-block w-auto" placeholder="Поиск..."> --}}
-                <button class="btn btn-outline-secondary btn-sm">Все заказы</button>
-                <button class="btn btn-outline-secondary btn-sm">В работе</button>
-                <button class="btn btn-outline-secondary btn-sm">Выполненные</button>
+
+                <!-- Кнопки фильтрации заказов -->
+                <a href="{{ route('order.index', ['status' => 'all']) }}" class="btn btn-outline-secondary btn-sm">
+                    Все заказы
+                </a>
+                <a href="{{ route('order.index', ['status' => 'in_progress']) }}" class="btn btn-outline-secondary btn-sm">
+                    В работе
+                </a>
+                <a href="{{ route('order.index', ['status' => 'completed']) }}" class="btn btn-outline-secondary btn-sm">
+                    Выполненные
+                </a>
                 <button class="btn btn-outline-secondary btn-sm">Фильтры</button>
                 <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#createContractorModal"
                     id="addContractorBtn" data-toggle="tooltip" title="Дообавить контрагента">

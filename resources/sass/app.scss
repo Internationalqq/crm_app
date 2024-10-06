@@ -7,6 +7,16 @@
 // Bootstrap
 @import "bootstrap/scss/bootstrap";
 
+.nav-link.active {
+    border-left: 4px solid #007bff;
+    background-color: #f8f9fa;
+    color: #007bff;
+}
+
+.nav-link.active i {
+    color: #007bff;
+}
+
 form {
     font-size: 0.9rem;
     color: #999999;

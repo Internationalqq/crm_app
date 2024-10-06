@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MainController;
+use App\Http\Controllers\NotreadyController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SalesController;
 
@@ -31,5 +32,7 @@ Route::group(['namespace' => 'App\Http\Controllers\Contractor'], function () {
 Route::get('/sales', [SalesController::class, 'index'])->name('sale.index')->middleware('auth');
 
 Route::get('/profile', [ProfileController::class, 'index'])->name('profile.index')->middleware('auth');
+
+Route::get('/notready', [NotreadyController::class, 'index'])->name('notready')->middleware('auth');
 
 Auth::routes();

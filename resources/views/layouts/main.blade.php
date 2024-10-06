@@ -17,56 +17,66 @@
         <h4 class="ms-3 text-primary fw-bold"><i class="bi bi-shop-window"></i> OrdersHub</h4>
         <ul class="nav flex-column">
             <li class="nav-item">
-                <a class="nav-link text-dark" href="#">
+                <a class="nav-link text-dark {{ request()->routeIs('notready') ? 'active' : '' }}"
+                    href="{{ route('notready') }}">
                     <i class="bi bi-house me-2 fa-lg"></i>
                     Главная
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-dark active" href="{{ route('order.index') }}">
-                    <i class="bi bi-shop-window me-2 fa-lg"></i>
+                <a class="nav-link text-dark {{ request()->routeIs('order.index') ? 'active' : '' }}"
+                    href="{{ route('order.index') }}">
+                    <i class="bi
+                    bi-shop-window me-2 fa-lg"></i>
                     Заказы
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-dark" href="{{ route('sale.index') }}">
+                <a class="nav-link text-dark {{ request()->routeIs('sale.index') ? 'active' : '' }}"
+                    href="{{ route('sale.index') }}">
                     <i class="bi bi-stack me-2 fa-lg"></i>
                     Продажи
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-dark" href="#">
-                    <i class="bi bi-box me-2 fa-lg"></i>
+                <a class="nav-link text-dark" href="{{ route('notready') }}">
+                    <i class="bi bi-box
+                    me-2 fa-lg"></i>
                     Склад
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-dark" href="#">
-                    <i class="bi bi-file-earmark-text me-2 fa-lg"></i>
+                <a class="nav-link text-dark" href="{{ route('notready') }}">
+                    <i class="bi
+                    bi-file-earmark-text me-2 fa-lg"></i>
                     Прайсы
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-dark" href="#">
-                    <i class="bi bi-cart me-2 fa-lg"></i>
+                <a class="nav-link text-dark" href="{{ route('notready') }}">
+                    <i class="bi bi-cart
+                    me-2 fa-lg"></i>
                     Корзина
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-dark" href="#">
-                    <i class="bi bi-wallet me-2 fa-lg"></i>
+                <a class="nav-link text-dark" href="{{ route('notready') }}">
+                    <i class="bi bi-wallet
+                    me-2 fa-lg"></i>
                     Финансы
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-dark" href="#">
-                    <i class="bi bi-bar-chart me-2 fa-lg"></i>
+                <a class="nav-link text-dark" href="{{ route('notready') }}">
+                    <i class="bi
+                    bi-bar-chart me-2 fa-lg"></i>
                     Аналитика
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-dark" href="#">
-                    <i class="bi bi-info-circle me-2 fa-lg"></i>
+                <a class="nav-link text-dark" href="{{ route('notready') }}">
+                    <i class="bi
+                    bi-info-circle me-2 fa-lg"></i>
                     Справочники
                 </a>
             </li>
