@@ -16,14 +16,14 @@ return new class extends Migration
             $table->boolean('status')->default(0); // Статус
             $table->date('due_date')->default(null)->nullable(); // Крайний срок
             $table->string('manager')->default(null)->nullable(); // Менеджер
-            $table->string('order_type')->default('Платный'); // Тип заказа
+            $table->string('order_type')->default(null)->nullable(); // Тип заказа
             $table->string('device_type')->default(null)->nullable(); // Тип устройства
             $table->string('device')->default(null)->nullable(); // Устройство
             $table->string('issue')->default(null)->nullable(); // Неисправность
             $table->unsignedBigInteger('contractor_id')->default(0)->nullable();
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('user_order_id')->nullable();
-            $table->decimal('amount', 10, 2); // Сумма
+            $table->decimal('amount', 10, 2)->default(0); // Сумма
             $table->timestamps();
             $table->softDeletes();
         });

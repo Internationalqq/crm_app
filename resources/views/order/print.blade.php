@@ -37,7 +37,7 @@
 
 <body>
     <div class="container">
-        <h1>Квитанция № {{ $order->user_order_id }} от {{ \Carbon\Carbon::now()->format('d.m.Y') }}</h1>
+        <h1>Квитанция № {{ $order->user_order_id }} от {{ \Carbon\Carbon::now()->format('d.m.Y H:i') }}</h1>
         <div style="display: flex; margin-bottom: 20px">
             <div style="margin-right: 40px">
                 <h4>Исполнитель: </h4>
@@ -50,8 +50,8 @@
                 <p>{{ $order->manager }}</p>
                 <p>Автозаводцев 65, Миасс</p>
                 <p>+7 (952) 523-39-99</p>
-                <p>{{ $order->contractor->title }}</p>
-                <p>{{ $order->contractor->contractor_phone }}</p>
+                <p>{{ $order->contractor?->title ?? 'Неизвестный контрагент' }}</p>
+                <p>{{ $order->contractor?->contractor_phone ?? 'Номер не указан' }}</p>
             </div>
         </div>
         <p><b>Марка/модель:</b> {{ $order->device }}</p>
@@ -90,7 +90,7 @@
             </div>
             <div style="width: 300px">
                 <div>
-                    <p> _______________ / {{ $order->contractor->title }}/
+                    <p> _______________ / {{ $order->contractor?->title ?? 'Неизвестный контрагент' }}/
                 </div>
                 <br>
                 <div>
@@ -102,7 +102,7 @@
     </div>
 
     <div class="container">
-        <h1>Квитанция № {{ $order->user_order_id }} от {{ \Carbon\Carbon::now()->format('d.m.Y') }}</h1>
+        <h1>Квитанция № {{ $order->user_order_id }} от {{ \Carbon\Carbon::now()->format('d.m.Y H:i') }}</h1>
         <div style="display: flex; margin-bottom: 20px">
             <div style="margin-right: 40px">
                 <h4>Исполнитель: </h4>
@@ -115,8 +115,8 @@
                 <p>{{ $order->manager }}</p>
                 <p>Автозаводцев 65, Миасс</p>
                 <p>+7 (952) 523-39-99</p>
-                <p>{{ $order->contractor->title }}</p>
-                <p>{{ $order->contractor->contractor_phone }}</p>
+                <p>{{ $order->contractor?->title ?? 'Неизвестный контрагент' }}</p>
+                <p>{{ $order->contractor?->contractor_phone ?? 'Номер не указан' }}</p>
             </div>
         </div>
         <p><b>Марка/модель:</b> {{ $order->device }}</p>
@@ -125,7 +125,7 @@
         <p><b>Причина ремонта со слов заказчика:</b> {{ $order->issue }}</p>
         <p><b>Предоплата:</b> 0,00</p>
         <p><b>Ориентировочная стоимость ремонта:</b> {{ $order->amount }}</p>
-        <p><b>Ориентировочная дата готовности:</b></p>
+        <p><b>Ориентировочная дата готовности:</b> {{ $order->due_date }}</p>
         <h4>Примечание:</h4>
         <ol style="margin-top: 10px; padding: 0;">
             <li>1. Технический центр не несёт ответственности за возможную потерю данных в памяти устройства, связанную
@@ -155,7 +155,7 @@
             </div>
             <div style="width: 300px">
                 <div>
-                    <p> _______________ / {{ $order->contractor->title }}/
+                    <p> _______________ / {{ $order->contractor?->title ?? 'Неизвестный контрагент' }}/
                 </div>
                 <br>
                 <div>

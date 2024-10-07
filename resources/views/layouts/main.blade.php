@@ -87,7 +87,7 @@
             <p>
                 <a href="#" class="nav-link p-0">
                     <i class="bi bi-gear-fill me-2 fa-lg"></i>
-                    Найстроки
+                    Настройки
                 </a>
             </p>
             <p>

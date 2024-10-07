@@ -25,7 +25,7 @@ class StoreRequest extends FormRequest
             'status' => 'string',
             'due_date' => 'nullable|date',
             'manager' => 'nullable|string',
-            'order_type' => 'string',
+            'order_type' => 'nullable|string',
             'device_type' => 'nullable|string',
             'device' => 'nullable|string',
             'issue' => 'nullable|string',

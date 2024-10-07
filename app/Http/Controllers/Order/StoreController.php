@@ -13,22 +13,6 @@ class StoreController extends BaseController
         // Получаем данные из запроса
         $data = $request->all();
 
-        // Устанавливаем значения по умолчанию, если поля пустые
-        $data['manager'] = $data['manager'] ?: 'Стандартный менеджер'; // Установите ваше значение по умолчанию
-        $data['order_type'] = $data['order_type'] ?: 'Платный'; // Установите ваше значение по умолчанию
-        $data['device_type'] = $data['device_type'] ?: 'Неизвестный'; // Установите ваше значение по умолчанию
-        $data['device'] = $data['device'] ?: 'Неизвестное устройство'; // Установите ваше значение по умолчанию
-        $data['issue'] = $data['issue'] ?: 'Нет информации'; // Установите ваше значение по умолчанию
-
-        // $data = $request->validated();
-        // $this->service->store($data);
-
-
-        // return redirect()->route('order.index')->with('success', 'Заказ создан успешно!');
-
-        // Валидация данных
-        $validatedData = $request->validated();
-
         // Проверка и создание нового контрагента, если указаны данные
         if ($request->filled('new_contractor_title') && $request->filled('new_contractor_phone')) {
             $contractor = new Contractor();
@@ -37,14 +21,30 @@ class StoreController extends BaseController
             $contractor->user_id = Auth::id(); // Устанавливаем user_id
             $contractor->save();
 
-            // Сохраняем ID нового контрагента
-            $validatedData['contractor_id'] = $contractor->id;
+            // Сохраняем ID нового контрагента в $data
+            $data['contractor_id'] = $contractor->id; // Используем $data, чтобы сохранить contractor_id
         }
 
+        // Валидация данных
+        $validatedData = $request->validated();
+
+        // Объединяем $data с $validatedData
+        $data = array_merge($validatedData, $data);
+
+        // Удаляем поля new_contractor_title и new_contractor_phone из массива $data
+        unset($data['new_contractor_title']);
+        unset($data['new_contractor_phone']);
+
         // Передаем данные в сервис для создания заказа
-        $this->service->store($validatedData);
-        dd($data);
+        $this->service->store($data);
 
         return redirect()->route('order.index')->with('success', 'Заказ создан успешно!');
     }
 }
+
+
+        // $data = $request->validated();
+        // $this->service->store($data);
+
+
+        // return redirect()->route('order.index')->with('success', 'Заказ создан успешно!');
