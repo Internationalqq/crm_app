@@ -1,4 +1,4 @@
-<div>
+<div style="max-height: 100vh; overflow-y: auto; padding-bottom: 8rem">
     <table class="table custom-table table-sm table-hover">
         <thead>
             <tr>

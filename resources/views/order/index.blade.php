@@ -34,11 +34,6 @@
                     Выполненные
                 </a>
                 <button class="btn btn-outline-secondary btn-sm">Фильтры</button>
-                <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#createContractorModal"
-                    id="addContractorBtn" data-toggle="tooltip" title="Дообавить контрагента">
-                    Добавить
-                    <i class="bi bi-person fa-lg"></i>
-                </button>
             </div>
         </div>
 
@@ -71,10 +66,10 @@
 
                 let formattedValue = '';
                 if (value.length > 0) {
-                    formattedValue += '+7 ';
+                    formattedValue += '+7';
                 }
                 if (value.length > 1) {
-                    formattedValue += '(' + value.slice(1, 4) + ') '; // Скобки вокруг кода региона
+                    formattedValue += ' ' + value.slice(1, 4) + ' '; // Скобки вокруг кода региона
                 }
                 if (value.length > 4) {
                     formattedValue += value.slice(4, 7); // Код города
@@ -86,9 +81,34 @@
                     formattedValue += '-' + value.slice(9, 11); // Последние 2 цифры номера
                 }
 
+                // Устанавливаем форматированное значение
                 input.value = formattedValue.trim();
+
+                // Устанавливаем курсор в конец ввода
+                setTimeout(() => {
+                    input.setSelectionRange(input.value.length, input.value.length);
+                }, 0);
             }
+            document.getElementById('searchInput').addEventListener('keypress', function(event) {
+                // Проверяем, нажата ли клавиша Enter
+                if (event.key === 'Enter') {
+                    event.preventDefault(); // Отменяем стандартное поведение
+                    document.getElementById('searchForm').submit(); // Отправляем форму
+                }
+            });
+
+            document.getElementById('add-contractor-btn').addEventListener('click', function() {
+                const fields = document.getElementById('new-contractor-fields');
+                if (fields.style.display === 'none') {
+                    fields.style.display = 'block'; // Показываем поля
+                } else {
+                    fields.style.display = 'none'; // Скрываем поля
+                }
+            });
         </script>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
         {{-- @foreach ($posts as $post)
             <p><a href="{{ route('post.show', $post->id) }}">{{ $post->id }}. {{ $post->title }}</a></p>

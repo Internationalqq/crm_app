@@ -23,12 +23,12 @@ class StoreRequest extends FormRequest
     {
         return [
             'status' => 'string',
-            'due_date' => 'date',
-            'manager' => 'string',
+            'due_date' => 'nullable|date',
+            'manager' => 'nullable|string',
             'order_type' => 'string',
-            'device_type' => 'string',
-            'device' => 'string',
-            'issue' => 'string',
+            'device_type' => 'nullable|string',
+            'device' => 'nullable|string',
+            'issue' => 'nullable|string',
             'contractor_id' => '',
             'user_id' => '',
             'user_order_id' => '',

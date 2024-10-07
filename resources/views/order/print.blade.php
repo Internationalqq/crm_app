@@ -11,8 +11,8 @@
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
             margin: 0 !important;
             padding: 0;
-            font-size: 0.8rem;
-            line-height: 0.9rem;
+            font-size: 0.75rem;
+            line-height: 0.82rem;
         }
 
         p {
@@ -116,13 +116,13 @@
                 <p>Автозаводцев 65, Миасс</p>
                 <p>+7 (952) 523-39-99</p>
                 <p>{{ $order->contractor->title }}</p>
-                <p>+7 (902) 600-54-41</p>
+                <p>{{ $order->contractor->contractor_phone }}</p>
             </div>
         </div>
         <p><b>Марка/модель:</b> {{ $order->device }}</p>
         <p><b>Комплектация:</b></p>
-        <p><b>Внешний вид:</b> {{ $order->issue }}</p>
-        <p><b>Причина ремонта со слов заказчика:</b> {{ $order->order_type }}</p>
+        <p><b>Внешний вид:</b> царапины, потертости</p>
+        <p><b>Причина ремонта со слов заказчика:</b> {{ $order->issue }}</p>
         <p><b>Предоплата:</b> 0,00</p>
         <p><b>Ориентировочная стоимость ремонта:</b> {{ $order->amount }}</p>
         <p><b>Ориентировочная дата готовности:</b></p>
@@ -149,10 +149,21 @@
             <li>5. В случае отказа заказчика от ремонта устройства стоимость диагностики неисправности платная.</li>
             <li>6. В случае утери квитанции, устройство выдаётся по предъявлению паспорта на имя заказчика.</li>
         </ol>
-        <p>Исполнитель: ___________ / {{ $order->manager }}/ ________________ / {{ $order->contractor->title }}/ с
-            условием
-            гарантии
-            ознакомлен и согласен</p>
+        <div style="display: flex; justify-content: space-between">
+            <div>
+                <p>Исполнитель: _____________ / {{ $order->manager }}/</p>
+            </div>
+            <div style="width: 300px">
+                <div>
+                    <p> _______________ / {{ $order->contractor->title }}/
+                </div>
+                <br>
+                <div>
+                    с условием гарантии ознакомлен и согласен
+                </div>
+                </p>
+            </div>
+        </div>
     </div>
 
     <script>

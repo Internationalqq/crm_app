@@ -27,6 +27,7 @@ Route::group(['namespace' => 'App\Http\Controllers\Contractor'], function () {
     Route::get('/contractors/{contractor}/edit', 'EditController@__invoke')->name('contractor.edit')->middleware('auth');
     Route::patch('/contractors/{contractor}', 'UpdateController@__invoke')->name('contractor.update')->middleware('auth');
     Route::delete('/contractors/{contractor}', 'DeleteController@__invoke')->name('contractor.delete')->middleware('auth');
+    Route::get('/contractors/search', 'SearchController@__invoke')->name('contractor.search')->middleware('auth');
 });
 
 Route::get('/sales', [SalesController::class, 'index'])->name('sale.index')->middleware('auth');

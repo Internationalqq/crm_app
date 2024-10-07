@@ -14,12 +14,12 @@ return new class extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
             $table->boolean('status')->default(0); // Статус
-            $table->date('due_date'); // Крайний срок
-            $table->string('manager'); // Менеджер
-            $table->string('order_type'); // Тип заказа
-            $table->string('device_type'); // Тип устройства
-            $table->string('device'); // Устройство
-            $table->string('issue'); // Неисправность
+            $table->date('due_date')->default(null)->nullable(); // Крайний срок
+            $table->string('manager')->default(null)->nullable(); // Менеджер
+            $table->string('order_type')->default('Платный'); // Тип заказа
+            $table->string('device_type')->default(null)->nullable(); // Тип устройства
+            $table->string('device')->default(null)->nullable(); // Устройство
+            $table->string('issue')->default(null)->nullable(); // Неисправность
             $table->unsignedBigInteger('contractor_id')->default(0)->nullable();
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('user_order_id')->nullable();

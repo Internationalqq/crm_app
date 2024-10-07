@@ -7,6 +7,9 @@
 // Bootstrap
 @import "bootstrap/scss/bootstrap";
 
+body {
+    overflow: hidden;
+}
 .nav-link.active {
     border-left: 4px solid #007bff;
     background-color: #f8f9fa;
@@ -80,10 +83,10 @@ td {
 /* Стиль для модального окна, чтобы оно появлялось справа */
 .modal-dialog {
     position: fixed;
-    top: 10px;
-    right: 10px;
+    top: 0;
+    right: 0;
     margin: 0;
-    height: 100%;
+    height: 100dvh;
     width: 720px;
     min-width: 720px;
     max-width: 720px;
@@ -108,4 +111,38 @@ td {
     width: 30%;
     transform: translate(-50%, -50%);
     transition: transform 0.3s ease;
+}
+
+/* Устанавливаем размеры скроллбара */
+::-webkit-scrollbar {
+    width: 8px; /* Ширина скроллбара */
+    height: 8px; /* Для горизонтального скролла */
+}
+
+/* Фон самого скроллбара */
+::-webkit-scrollbar-track {
+    background-color: #f1f1f1; /* Цвет фона скроллбара */
+    border-radius: 10px; /* Радиус углов трека */
+}
+
+/* Внешний вид ползунка (scroll thumb) */
+::-webkit-scrollbar-thumb {
+    background-color: #acacac; /* Цвет ползунка */
+    border-radius: 10px; /* Радиус углов ползунка */
+    border: 3px solid transparent; /* Пространство вокруг ползунка */
+}
+
+/* При наведении мыши на ползунок */
+::-webkit-scrollbar-thumb:hover {
+    background-color: #797979; /* Цвет ползунка при наведении */
+}
+
+/* Для горизонтального скроллбара */
+::-webkit-scrollbar-horizontal {
+    height: 8px;
+}
+
+::-webkit-scrollbar-thumb-horizontal {
+    background-color: #f1f1f1;
+    border-radius: 10px;
 }
