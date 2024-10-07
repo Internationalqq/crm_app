@@ -14,13 +14,13 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="due_date">Крайний срок</label>
-                                <input type="date" class="form-control" id="due_date" name="due_date" required>
+                                <input type="date" class="form-control" id="due_date" name="due_date">
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="manager">Менеджер</label>
-                                <input type="text" class="form-control" id="manager" name="manager" required>
+                                <input type="text" class="form-control" id="manager" name="manager">
                             </div>
                         </div>
                     </div>
@@ -28,13 +28,13 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="order_type">Тип заказа</label>
-                                <input type="text" class="form-control" id="order_type" name="order_type" required>
+                                <input type="text" class="form-control" id="order_type" name="order_type">
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="device_type">Тип устройства</label>
-                                <input type="text" class="form-control" id="device_type" name="device_type" required>
+                                <input type="text" class="form-control" id="device_type" name="device_type">
                             </div>
                         </div>
                     </div>
@@ -42,13 +42,13 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="device">Устройство</label>
-                                <input type="text" class="form-control" id="device" name="device" required>
+                                <input type="text" class="form-control" id="device" name="device">
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="issue">Неисправность</label>
-                                <input type="text" class="form-control" id="issue" name="issue" required>
+                                <input type="text" class="form-control" id="issue" name="issue">
                             </div>
                         </div>
                     </div>
@@ -56,7 +56,7 @@
                     <div class="form-group">
                         <div class="d-flex align-items-center">
                             <div style="flex: 1;">
-                                <select class="form-control" id="contractor" name="contractor_id" required>
+                                <select class="form-control" id="contractor" name="contractor_id">
                                     <option value="" disabled selected>Выберите контрагента</option>
                                     @foreach ($contractors as $contractor)
                                         <option value="{{ $contractor->id }}">{{ $contractor->title }}</option>
@@ -85,7 +85,7 @@
 
                     <div class="form-group">
                         <label for="amount">Сумма</label>
-                        <input type="number" class="form-control" id="amount" name="amount required" required>
+                        <input type="number" class="form-control" id="amount" name="amount">
                     </div>
                     <button type="submit" class="btn btn-primary">Создать</button>
                 </form>
